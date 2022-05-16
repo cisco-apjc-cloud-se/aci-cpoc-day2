@@ -14,22 +14,22 @@ tenants = {
 
 ### VRFs ###
 vrfs = {
-  # external = {
-  #   vrf_name    = "external"
-  #   description = "External VRF for Demo ACI Tenant.  Not expected to be used."
-  #   tenant_name = "tf-aci-cpoc" ## Tenant to add VRF to
-  #   preferred_group = "disabled"
-  # }
+  external = {
+    vrf_name    = "external"
+    description = "External VRF for Demo ACI Tenant.  Not expected to be used."
+    tenant_name = "tf-aci-cpoc" ## Tenant to add VRF to
+    preferred_group = "disabled"
+  }
 }
 
 ### Bridge Domains & L3 Subnets ###
 bds = {
   ext-85 = {
     bd_name     = "ext-85"
-    # vrf_name    = "external"      ## VRF to add BD to
+    vrf_name    = "external"      ## VRF to add BD to
     description = " Bridge Domain for External DMZ VLAN 85 in Demo ACI Tenant"
     tenant_name = "tf-aci-cpoc"    ## Tenant to add VRF to
-    # mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
+    mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
     arp_flood   = "yes" ## "yes", "no"
     l3outs      = [] ## List of associated L3outs for BD's Subnets
     subnets = {}
