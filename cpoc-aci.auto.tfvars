@@ -33,12 +33,29 @@ bds = {
   ext-85 = {
     bd_name     = "ext-85"
     vrf_name    = "external"      ## VRF to add BD to
-    description = " Bridge Domain for External DMZ VLAN 85 in Demo ACI Tenant"
+    description = " Bridge Domain for External VLAN 85 in Demo ACI Tenant"
     tenant_name = "tf-aci-cpoc"    ## Tenant to add VRF to
     mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
     arp_flood   = "yes" ## "yes", "no"
     l3outs      = [] ## List of associated L3outs for BD's Subnets
     subnets = {}
+  }
+  dmz = {
+    bd_name     = "dmz"
+    vrf_name    = "internal"      ## VRF to add BD to
+    description = " Bridge Domain for Demo DMZ in Demo ACI Tenant"
+    tenant_name = "tf-aci-cpoc"    ## Tenant to add VRF to
+    mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
+    arp_flood   = "yes" ## "yes", "no"
+    l3outs      = [] ## List of associated L3outs for BD's Subnets
+    subnets = {
+      sub-1 = {
+        ip          = "100.64.64.1/24"
+        description = "Primary Subnet for DMZ BD"
+        scope       = ["public"]
+        preferred   = "yes"
+      }
+    }
   }
 }
 
@@ -47,7 +64,7 @@ aps = {
   external = {
     ap_name = "external"
     tenant_name = "tf-aci-cpoc"    ## Tenant to add AP to
-    description = "App Profile for External DMZ VLANs"
+    description = "App Profile for External VLANs"
     esgs = {}
     epgs = {
       internet-vl85 = {
@@ -66,6 +83,23 @@ aps = {
             mode      = "regular" # regular, native, untagged
           }
         }
+      }
+    }
+  }
+  dmz = {
+    ap_name = "dmz"
+    tenant_name = "tf-aci-cpoc"    ## Tenant to add AP to
+    description = "App Profile for DMZ VLANs"
+    esgs = {}
+    epgs = {
+      iks-1 = {
+        epg_name = "iks-1"
+        bd_name = "dmz"       ## Bridge Domain to add EPG to
+        description = "EPG for DMZ IKS Cluster #1 in Demo ACI Tenant"
+        vmm_enabled = true
+        mapped_esg = ""
+        preferred_group = "exclude"
+        paths = {}
       }
     }
   }
