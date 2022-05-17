@@ -20,6 +20,12 @@ vrfs = {
     tenant_name = "tf-aci-cpoc" ## Tenant to add VRF to
     preferred_group = "disabled"
   }
+  internal = {
+    vrf_name    = "internal"
+    description = "Internal VRF for Demo ACI Tenant.  Preferred Group enabled."
+    tenant_name = "tf-aci-cpoc" ## Tenant to add VRF to
+    preferred_group = "enabled"
+  }
 }
 
 ### Bridge Domains & L3 Subnets ###
