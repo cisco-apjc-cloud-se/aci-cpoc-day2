@@ -113,4 +113,73 @@ filters = {}
 contracts = {}
 
 ### L3Outs & External EPGs ###
-l3outs = {}
+l3outs = {
+  ### STAGE 2 - Enable L3Out with OSPF & External EPG (RFC1918)
+  dmz-firewall = {
+    l3out_name      = "dmz-firewall"
+    description     = "DMZ FTDv Firewall L3Out built from Terraform"
+    tenant_name     = "tf-aci-cpoc"    ## Tenant to add filter to
+    vrf_name        = "internal"
+    l3_domain       = "dmz-firewall"
+    ospf_profiles   = {
+      ospf-1 = {
+        description = "OSPF Peering to DMZ FTDv Firewall"
+        area_cost   = 0
+        area_id     = "0.0.0.0"
+        area_type   = "regular"
+      }
+    }
+    logical_profiles = {
+      lprof-1 = {
+        lprof_name  = "dmz-firewall"
+        description = "DMZ FTDv Firewall Logical Profile created from Terraform"
+        nodes = {
+          node-1 = {
+            pod = 1
+            leaf_node = 101
+            loopback_ip = "101.1.1.1"
+          }
+          node-2 = {
+            pod = 1
+            leaf_node = 102
+            loopback_ip = "102.1.1.1"
+          }
+        }
+        interface_profiles = {
+          intprof-1 = {
+            intprof_name  = "dmz-firewall"
+            description   = "DMZ Firewall Interface Profile created from Terraform"
+            ospf_profiles = {
+              ospf-1 = {
+                description = "OSPF Interface Auth and Policy Config"
+                auth_key    = "key"
+                auth_key_id = 255
+                auth_type   = "none"
+                # ospf_policy = "default"
+              }
+            }
+            paths = {}
+          }
+        }
+      }
+    }
+    extepgs = {
+      cpoc-internet = {
+        extepg_name         = "cpoc-internet"
+        description         = "Public Internet from Sydney CPOC"
+        preferred_group     = "exclude"
+        consumed_contracts = {}
+        provided_contracts = {}
+        contract_master_epgs = {}
+        subnets = {
+          N-0-0-0-0-0 = {
+            description = "0.0.0.0/0"
+            aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "0.0.0.0/0"
+            scope = ["import-security"]
+          }
+        }
+      }
+    }
+  }
+}
