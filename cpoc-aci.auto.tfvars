@@ -145,16 +145,16 @@ filters = {
 
 ### Contracts ###
 contracts = {
-  servers-to-cpoc = {
-    ## NOTE: Provider ExEPG needs to be manually associated
-    contract_name = "servers-to-cpoc"
-    description   = "Allow all traffic to common CPOC lab networks"
-    tenant_name   = "common"    ## Tenant to add filter to
-    scope         = "tenant" # "global", "tenant", "application-profile" and "context"
-    filters = [
-      "allow-ipv4"
-    ]
-  }
+  # servers-to-cpoc = {
+  #   ## NOTE: Provider ExEPG needs to be manually associated
+  #   contract_name = "servers-to-cpoc"
+  #   description   = "Allow all traffic to common CPOC lab networks"
+  #   tenant_name   = "common"    ## Tenant to add filter to
+  #   scope         = "tenant" # "global", "tenant", "application-profile" and "context"
+  #   filters = [
+  #     "allow-ipv4"
+  #   ]
+  # }
   servers-to-internet = {
     contract_name = "servers-to-internet"
     description   = "Allow all traffic from DMZ servers to Internet via CPOC DMZ firewall"
