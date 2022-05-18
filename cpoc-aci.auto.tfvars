@@ -96,7 +96,14 @@ aps = {
         description     = "IKS Host ESG"
         preferred_group = "exclude"
         vrf_name        = "internal"
-        consumed_contracts = {}
+        consumed_contracts = {
+          c-1 = {
+            contract_name = "servers-to-internet"
+          }
+          c-2 = {
+            contract_name = "servers-to-cpoc"
+          }
+        }
         provided_contracts = {}
       }
     }
@@ -115,11 +122,49 @@ aps = {
 }
 
 ### Filters ###
-filters = {}
+filters = {
+  allow-ipv4 = {
+    filter_name = "allow-ipv4"
+    description = "Allow all IPv4 traffic"
+    tenant_name = "tf-aci-cpoc"    ## Tenant to add filter to
+    entries = {
+      all-ip = {
+        name = "all-ip"
+        description = "Allow all IPv4 traffic"
+        ether_t       = "ipv4"
+        d_from_port   = "unspecified"
+        d_to_port     = "unspecified"
+        prot          = "unspecified"
+        s_from_port   = "unspecified"
+        s_to_port     = "unspecified"
+      }
+    }
+  }
+}
 
 
 ### Contracts ###
-contracts = {}
+contracts = {
+  servers-to-cpoc = {
+    ## NOTE: Provider ExEPG needs to be manually associated
+    contract_name = "servers-to-cpoc"
+    description   = "Allow all traffic to common CPOC lab networks"
+    tenant_name   = "common"    ## Tenant to add filter to
+    scope         = "tenant" # "global", "tenant", "application-profile" and "context"
+    filters = [
+      "allow-ipv4"
+    ]
+  }
+  servers-to-internet = {
+    contract_name = "servers-to-internet"
+    description   = "Allow all traffic from DMZ servers to Internet via CPOC DMZ firewall"
+    tenant_name   = "tf-aci-cpoc"    ## Tenant to add filter to
+    scope         = "context" # "global", "tenant", "application-profile" and "context"
+    filters = [
+      "allow-ipv4"
+    ]
+  }
+}
 
 ### L3Outs & External EPGs ###
 l3outs = {
@@ -178,7 +223,11 @@ l3outs = {
         description         = "Public Internet from Sydney CPOC"
         preferred_group     = "exclude"
         consumed_contracts = {}
-        provided_contracts = {}
+        provided_contracts = {
+          p-1 = {
+            contract_name = "servers-to-internet"
+          }
+        }
         contract_master_epgs = {}
         subnets = {
           N-0-0-0-0-0 = {
