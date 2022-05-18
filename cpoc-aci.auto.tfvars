@@ -209,7 +209,7 @@ l3outs = {
           N-10-1-62-0-24 = {
             description = ""
             aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
-            ip = "10.1.62.0"
+            ip = "10.1.62.0/24"
             scope = ["export-rtctrl"]
           }
         }
