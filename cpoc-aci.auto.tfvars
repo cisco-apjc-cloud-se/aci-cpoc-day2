@@ -100,9 +100,9 @@ aps = {
           c-1 = {
             contract_name = "servers-to-internet"
           }
-          c-2 = {
-            contract_name = "servers-to-cpoc"
-          }
+          # c-2 = {
+          #   contract_name = "servers-to-cpoc"
+          # }
         }
         provided_contracts = {}
       }
