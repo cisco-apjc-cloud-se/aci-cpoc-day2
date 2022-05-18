@@ -90,14 +90,23 @@ aps = {
     ap_name = "dmz"
     tenant_name = "tf-aci-cpoc"    ## Tenant to add AP to
     description = "App Profile for DMZ VLANs"
-    esgs = {}
+    esgs = {
+      iks-esg = {
+        esg_name        = "iks-esg"
+        description     = "IKS Host ESG"
+        preferred_group = "exclude"
+        vrf_name        = "internal"
+        consumed_contracts = {}
+        provided_contracts = {}
+      }
+    }
     epgs = {
       iks-1 = {
         epg_name = "iks-1"
         bd_name = "dmz"       ## Bridge Domain to add EPG to
         description = "EPG for DMZ IKS Cluster #1 in Demo ACI Tenant"
         vmm_enabled = true
-        mapped_esg = ""
+        mapped_esg = "iks-esg"
         preferred_group = "exclude"
         paths = {}
       }
