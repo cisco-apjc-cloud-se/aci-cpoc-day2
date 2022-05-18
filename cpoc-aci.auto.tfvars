@@ -190,25 +190,25 @@ l3outs = {
         subnets = {
           N-100-64-63-0-24 = {
             description = ""
-            aggregate    = "export-rtctrl" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "100.64.63.0/24"
             scope = ["import-security"]
           }
           N-100-64-62-0-24 = {
             description = ""
-            aggregate    = "export-rtctrl" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "100.64.62.0/24"
             scope = ["import-security"]
           }
           N-100-64-255-0-24 = {
             description = ""
-            aggregate    = "export-rtctrl" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "100.64.255.0/24"
             scope = ["import-security"]
           }
           N-10-1-62-0-24 = {
             description = ""
-            aggregate    = "export-rtctrl" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "10.1.62.0"
             scope = ["import-security"]
           }
