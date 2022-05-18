@@ -246,6 +246,12 @@ l3outs = {
         provided_contracts = {}
         contract_master_epgs = {}
         subnets = {
+          N-100-64-64-16-28 = {
+            description = ""
+            aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "100.64.64.16/28"
+            scope = ["export-rtctrl"]
+          }
           N-100-64-63-0-24 = {
             description = ""
             aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
