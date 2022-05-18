@@ -180,6 +180,40 @@ l3outs = {
           }
         }
       }
+      cpoc-dmz = {
+        extepg_name         = "cpoc-dmz"
+        description         = "Advertise networks to DMZ Firewall"
+        preferred_group     = "exclude"
+        consumed_contracts = {}
+        provided_contracts = {}
+        contract_master_epgs = {}
+        subnets = {
+          N-100-64-63-0-24 = {
+            description = ""
+            aggregate    = "export-rtctrl" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "100.64.63.0/24"
+            scope = ["import-security"]
+          }
+          N-100-64-62-0-24 = {
+            description = ""
+            aggregate    = "export-rtctrl" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "100.64.62.0/24"
+            scope = ["import-security"]
+          }
+          N-100-64-255-0-24 = {
+            description = ""
+            aggregate    = "export-rtctrl" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "100.64.255.0/24"
+            scope = ["import-security"]
+          }
+          N-10-1-62-0-24 = {
+            description = ""
+            aggregate    = "export-rtctrl" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "10.1.62.0"
+            scope = ["import-security"]
+          }
+        }
+      }
     }
   }
 }
