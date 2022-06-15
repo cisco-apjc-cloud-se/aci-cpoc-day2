@@ -111,6 +111,7 @@ aps = {
           # }
         }
         provided_contracts = {
+          # NOTE: Gets removed as this a shared contract - need method to use data source
           p-1 = {
             contract_name = "servers-to-cpoc"
           }
@@ -174,8 +175,16 @@ contracts = {
   #     "allow-ipv4"
   #   ]
   # }
+  servers-to-cpoc = {
+    ## NOTE: Use existing contract from common tenant - won't create new contract
+    ## NOTE: Provider ExEPG needs to be manually associated
+    contract_name = "servers-to-cpoc"
+    tenant_name   = "common"    ## Tenant to add filter to
+    existing = true
+  }
   servers-to-internet = {
     contract_name = "servers-to-internet"
+    existing = false
     description   = "Allow all traffic from DMZ servers to Internet via CPOC DMZ firewall"
     tenant_name   = "tf-aci-cpoc"    ## Tenant to add filter to
     scope         = "context" # "global", "tenant", "application-profile" and "context"
