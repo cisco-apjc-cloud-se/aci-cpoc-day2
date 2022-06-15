@@ -52,13 +52,13 @@ bds = {
       sub-1 = {
         ip          = "100.64.64.17/28"
         description = "Primary Subnet for DMZ BD"
-        scope       = ["public"]
+        scope       = ["public","shared"]
         preferred   = "yes"
       }
       sub-2 = {
         ip          = "100.64.64.33/28"
         description = "2nd Subnet for DMZ BD"
-        scope       = ["public"]
+        scope       = ["public","shared"]
         preferred   = "no"
       }
     }
