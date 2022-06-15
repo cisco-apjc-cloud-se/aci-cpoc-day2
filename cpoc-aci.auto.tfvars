@@ -49,7 +49,7 @@ bds = {
     arp_flood   = "yes" ## "yes", "no"
     l3outs      = [] ## List of associated L3outs for BD's Subnets
     subnets = {
-      ### NOTE: CPOC Lab L3Out needs manual export entry in ExEPG
+      ### NOTE: CPOC Lab L3Out needs manual export entry in common tenant ExEPG
       sub-1 = {
         ip          = "100.64.64.17/28"
         description = "Primary Subnet for DMZ BD"
