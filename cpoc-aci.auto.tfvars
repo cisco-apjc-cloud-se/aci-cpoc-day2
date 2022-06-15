@@ -55,6 +55,12 @@ bds = {
         scope       = ["public"]
         preferred   = "yes"
       }
+      sub-2 = {
+        ip          = "100.64.64.33/28"
+        description = "2nd Subnet for DMZ BD"
+        scope       = ["public"]
+        preferred   = "no"
+      }
     }
   }
 }
@@ -112,6 +118,15 @@ aps = {
         epg_name = "iks-1"
         bd_name = "dmz"       ## Bridge Domain to add EPG to
         description = "EPG for DMZ IKS Cluster #1 in Demo ACI Tenant"
+        vmm_enabled = true
+        mapped_esg = "iks-esg"
+        preferred_group = "exclude"
+        paths = {}
+      }
+      iks-2 = {
+        epg_name = "iks-2"
+        bd_name = "dmz"       ## Bridge Domain to add EPG to
+        description = "EPG for DMZ IKS Cluster #2 in Demo ACI Tenant"
         vmm_enabled = true
         mapped_esg = "iks-esg"
         preferred_group = "exclude"
@@ -246,6 +261,12 @@ l3outs = {
         provided_contracts = {}
         contract_master_epgs = {}
         subnets = {
+          N-100-64-64-32-28 = {
+            description = ""
+            aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "100.64.64.32/28"
+            scope = ["export-rtctrl"]
+          }
           N-100-64-64-16-28 = {
             description = ""
             aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
