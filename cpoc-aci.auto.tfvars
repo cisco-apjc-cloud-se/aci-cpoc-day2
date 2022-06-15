@@ -49,6 +49,7 @@ bds = {
     arp_flood   = "yes" ## "yes", "no"
     l3outs      = [] ## List of associated L3outs for BD's Subnets
     subnets = {
+      ### NOTE: CPOC Lab L3Out needs manual export entry in ExEPG
       sub-1 = {
         ip          = "100.64.64.17/28"
         description = "Primary Subnet for DMZ BD"
@@ -165,19 +166,8 @@ filters = {
 
 ### Contracts ###
 contracts = {
-  # servers-to-cpoc = {
-  #   ## NOTE: Provider ExEPG needs to be manually associated
-  #   contract_name = "servers-to-cpoc"
-  #   description   = "Allow all traffic to common CPOC lab networks"
-  #   tenant_name   = "common"    ## Tenant to add filter to
-  #   scope         = "tenant" # "global", "tenant", "application-profile" and "context"
-  #   filters = [
-  #     "allow-ipv4"
-  #   ]
-  # }
   servers-to-cpoc = {
     ## NOTE: Use existing contract from common tenant - won't create new contract
-    ## NOTE: Provider ExEPG needs to be manually associated
     contract_name = "servers-to-cpoc"
     tenant_name   = "common"    ## Tenant to add filter to
     existing = true
