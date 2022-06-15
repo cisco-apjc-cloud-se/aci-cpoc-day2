@@ -110,7 +110,11 @@ aps = {
           #   contract_name = "servers-to-cpoc"
           # }
         }
-        provided_contracts = {}
+        provided_contracts = {
+          p-1 = {
+            contract_name = "servers-to-cpoc"
+          }
+        }
       }
     }
     epgs = {
