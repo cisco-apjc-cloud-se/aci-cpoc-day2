@@ -242,7 +242,33 @@ tenants = {
                     auth_type   = "none"
                     ospf_policy = {}
                   }
-                  floating_svis = {}
+                  floating_svis = {
+                    node-101 = {
+                      pod         = 1
+                      node        = 101
+                      vlan_id     = 301
+                      ip          = "100.64.64.2/28"
+                      description = "Floating SVI to DMZ-FW Node 101"
+                      domains = {
+                        vmm = {
+                          name              = "CPOC-SE-VC-HX"
+                          type              = "vmware"
+                          floating_ip       = "100.64.64.1/28"
+                          forged_transmit   = "Enabled"
+                          mac_change        = "Enabled"
+                          promiscuous_mode  = "Enabled"
+                        }
+                      }
+                    }
+                    node-102 = {
+                      pod         = 1
+                      node        = 102
+                      vlan_id     = 301
+                      ip          = "100.64.64.3/28"
+                      description = "Floating SVI to DMZ FW Node 102"
+                      domains = {}
+                    }
+                  }
                   paths = {}
                 }
               }
