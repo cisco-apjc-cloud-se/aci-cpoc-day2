@@ -248,7 +248,7 @@ tenants = {
               }
             }
           }
-          extepgs = {
+          external_epgs = {
             cpoc-internet = {
               extepg_name         = "cpoc-internet"
               description         = "Public Internet from Sydney CPOC"
