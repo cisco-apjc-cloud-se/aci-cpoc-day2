@@ -214,7 +214,7 @@ tenants = {
             area_id     = "0.0.0.0"
             area_type   = "regular"
           }
-          logical_profiles = {
+          logical_node_profiles = {
             lprof-1 = {
               lprof_name  = "dmz-firewall"
               description = "DMZ FTDv Firewall Logical Profile created from Terraform"
