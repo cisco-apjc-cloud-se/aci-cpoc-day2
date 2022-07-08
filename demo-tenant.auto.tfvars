@@ -177,6 +177,7 @@ demo_tenant = {
           vrf_name        = "internal"
         }
         l3_domain       = "dmz-firewall"
+        bgp_policy = {}
         ospf_policy = {
           enabled     = true
           description = "OSPF Peering to DMZ FTDv Firewall"

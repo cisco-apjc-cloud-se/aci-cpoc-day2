@@ -20,6 +20,9 @@ common_tenant = {
           vrf_name        = "cpoc"
         }
         l3_domain       = "dmz-firewall"
+        bgp_policy = {
+          enabled = true
+        }
         ospf_policy = {}
         logical_node_profiles = {
           cpoc-aci-lprof = {
