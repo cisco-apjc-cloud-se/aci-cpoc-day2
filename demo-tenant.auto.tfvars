@@ -221,7 +221,6 @@ demo_tenant = {
                     vlan_id     = 301
                     ip          = "100.64.64.2/28"
                     description = "Floating SVI to DMZ-FW Node 101"
-                    bgp_peers = {}
                     domains = {
                       vmm = {
                         name              = "CPOC-SE-VC-HX"
@@ -239,7 +238,6 @@ demo_tenant = {
                     vlan_id     = 301
                     ip          = "100.64.64.3/28"
                     description = "Floating SVI to DMZ FW Node 102"
-                    bgp_peers = {}
                     domains = {}
                   }
                 }
