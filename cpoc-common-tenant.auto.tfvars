@@ -19,7 +19,7 @@ common_tenant = {
         vrf = {
           vrf_name        = "cpoc"
         }
-        l3_domain       = "dmz-firewall"
+        l3_domain       = "cpoc-aci-l3out"
         bgp_policy = {
           enabled = true
         }
