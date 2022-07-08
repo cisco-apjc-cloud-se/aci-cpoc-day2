@@ -47,11 +47,11 @@ module "cpoc_common_tenant" {
 
 }
 
-# ### ACI Tenant Object Module ###
-# module "cpoc_demo_tenant" {
-#   source = "github.com/cisco-apjc-cloud-se/terraform-aci-tenant-object"
-#
-#   ### Tenant ###
-#   tenant   = var.demo_tenant
-#
-# }
+### ACI Tenant Object Module ###
+module "cpoc_demo_tenant" {
+  source = "github.com/cisco-apjc-cloud-se/terraform-aci-tenant-object"
+
+  ### Tenant ###
+  tenant   = var.demo_tenant
+
+}
