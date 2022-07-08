@@ -35,7 +35,7 @@ provider "aci" {
 
 /*
 NOTE:
-- Need to add inter-VRF route leaking - not currently supported by Terraform
+- Need to add inter-VRF route leaking manually - not currently supported by Terraform
 */
 
 ### ACI Tenant Object Module ###

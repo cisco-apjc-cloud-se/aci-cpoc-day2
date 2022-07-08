@@ -30,7 +30,7 @@ common_tenant = {
                 peer_ip                 = "100.64.63.241"
                 peer_asn                = 65000 # as_number
                 description             = "BGP peer to Main CPOC ACI Fabric. Built by Terraform"
-                ctrl                    = "send-com, send-ext-com" # Allowed values: "allow-self-as", "as-override", "dis-peer-as-check", "nh-self", "send-com", "send-ext-com"
+                ctrl                    = ["send-com", "send-ext-com"] # Allowed values: "allow-self-as", "as-override", "dis-peer-as-check", "nh-self", "send-com", "send-ext-com"
                 local_asn               = 65400
                 route_control_profiles  = {}
               }
