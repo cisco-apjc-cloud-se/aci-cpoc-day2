@@ -23,12 +23,35 @@ provider "aci" {
   insecure = true
 }
 
-## ACI Networking Module
-module "aci_tenants" {
-  # source = "./modules/aci"
-  source = "github.com/cisco-apjc-cloud-se/terraform-aci-day2"
+# ## ACI Networking Module
+# module "aci_tenants" {
+#   # source = "./modules/aci"
+#   source = "github.com/cisco-apjc-cloud-se/terraform-aci-day2"
+#
+#   ### Tenants ###
+#   tenants   = var.tenants
+#
+# }
 
-  ### Tenants ###
-  tenants   = var.tenants
+/*
+NOTE:
+- Need to add inter-VRF route leaking - not currently supported by Terraform
+*/
 
+### ACI Tenant Object Module ###
+module "cpoc_common_tenant" {
+  source = "github.com/cisco-apjc-cloud-se/terraform-aci-tenant-object"
+
+  ### Tenant ###
+  tenant   = var.common_tenant
+
+}
+
+# ### ACI Tenant Object Module ###
+# module "cpoc_demo_tenant" {
+#   source = "github.com/cisco-apjc-cloud-se/terraform-aci-tenant-object"
+#
+#   ### Tenant ###
+#   tenant   = var.demo_tenant
+#
 }
