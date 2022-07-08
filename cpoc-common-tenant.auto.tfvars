@@ -28,16 +28,7 @@ common_tenant = {
           cpoc-aci-lprof = {
             lprof_name  = "cpoc-aci-lprof"
             description = "Main CPOC ACI fabric L3out Logical Profile created from Terraform"
-            bgp_peers = {
-              main-aci = {
-                peer_ip                 = "100.64.63.241"
-                peer_asn                = 65000 # as_number
-                description             = "BGP peer to Main CPOC ACI Fabric. Built by Terraform"
-                ctrl                    = ["send-com", "send-ext-com"] # Allowed values: "allow-self-as", "as-override", "dis-peer-as-check", "nh-self", "send-com", "send-ext-com"
-                local_asn               = 65400
-                route_control_profiles  = {}
-              }
-            }
+            bgp_peers = {}
             nodes = {
               node-1 = {
                 pod = 1
@@ -76,6 +67,16 @@ common_tenant = {
                       side_b = {
                         node = 102
                         ip = "100.64.63.246/24"
+                      }
+                    }
+                    bgp_peers = {
+                      main-aci = {
+                        peer_ip                 = "100.64.63.241"
+                        peer_asn                = 65000 # as_number
+                        description             = "BGP peer to Main CPOC ACI Fabric. Built by Terraform"
+                        ctrl                    = ["send-com", "send-ext-com"] # Allowed values: "allow-self-as", "as-override", "dis-peer-as-check", "nh-self", "send-com", "send-ext-com"
+                        local_asn               = 65400
+                        route_control_profiles  = {}
                       }
                     }
                   }
